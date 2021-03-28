@@ -24,6 +24,9 @@ public class Point {
      * @return the 2-dimensional distance
      */
     public double distanceTo(Point other) {
-        throw new UnsupportedOperationException();
+        double deltaLat = this.latitude - other.latitude;
+        double deltaLon = this.longitude - other.longitude;
+
+        return Math.sqrt((deltaLat * deltaLat) + (deltaLon * deltaLon)) * 100000;
     }
 }
