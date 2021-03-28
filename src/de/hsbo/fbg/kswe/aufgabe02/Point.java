@@ -24,6 +24,16 @@ public class Point {
      * @return the 2-dimensional distance
      */
     public double distanceTo(Point other) {
-        throw new UnsupportedOperationException();
+        double radius = 6371000;
+
+        double latDelta = Math.toRadians(Math.abs(this.latitude - other.latitude));
+        double lonDelta = Math.toRadians(Math.abs(this.longitude - other.longitude));
+        double a = Math.sin(latDelta / 2) * Math.sin(latDelta / 2)
+                + Math.cos(Math.toRadians(this.latitude)) * Math.cos(Math.toRadians(other.latitude))
+                * Math.sin(lonDelta / 2) * Math.sin(lonDelta / 2);
+
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        return radius * c;
     }
 }
