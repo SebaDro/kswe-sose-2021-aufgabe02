@@ -87,5 +87,29 @@ lokalen Ordner. Entscheidet anschließend, welcher der beiden Branches die richt
 Dokumentationen zum Mergen mit Git findet Ihr unter https://git-scm.com/docs/git-merge und
 https://git-scm.com/book/de/v2/Git-Branching-Einfaches-Branching-und-Merging.
 
+Solltet ihr Schwierigkeiten bei der Ausführung der korrekten Git-Befehle haben, findet ihr nachfolgend eine schrittweise
+Anleitung für das Merging. Schaut euch diese jedoch erst an, wenn ihr wirklich nicht mehr weiterwisst.
+<details>
+  <summary>Spoiler</summary>
+  1. Feature-Branch auschecken<br>
+  Mit `git checkout feature/point-distance` könnt ihr den Feature-Branch auschcken. Schaut euch anschließend die Implementierung
+  der `distancePoint` in eurer IDE an. Entsceidet welche Implementierung korrekt ist. Mit `git checkout master` könnt ihr wieder
+  in den Master-Branch zurückwechseln.<br>
+  <br>
+  2. Merge durchführen<br>
+  Wenn ihr euch im Master-Branch befindet, führt den Merge mit dem Befehl `git merge feature/point-distance` aus. Die Git-Bash
+  wird daraufhin auf einen Merge-Conflict hinweisen. Wenn ihr nicht wisst, in welchem Branch ihr euch befindet, ruft `git branch` auf.<br>
+  <br>
+  3. Ruft über die Git-Bash mit `git mergetool` das in der _.gitconfig_ hinterlegte Mergetool (KDiff3) auf. Dieses startet daraufhin
+  automatisch. Über die grafische Oberfläche des Tools kann der Merge durchgeführt werden. Wenn ihr euch für eine Implementierung
+  entschieden habt, speichert eure Entscheidung in KDiff3 und beendet das Tool. Der Merge ist damit durchgeführt, muss jedoch noch
+  commitet werden.<br>
+  <br>
+  4. Committet euren Merge mit `git commit -m "Merge feature/point-distance into master"`.<br>
+  <br>
+  5. Testet euren Merge mit der Ausführung der Klasse `Conflicts.java` in eurer IDE.
+
+</details>
+
 ### Ergebnis
 Bei Ausführung von `Conflicts.java` sollte als Entfernung ungefähr `60232` ausgegeben werden.
