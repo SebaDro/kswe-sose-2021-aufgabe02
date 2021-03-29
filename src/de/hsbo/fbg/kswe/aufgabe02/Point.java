@@ -1,7 +1,5 @@
 package de.hsbo.fbg.kswe.aufgabe02;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 /**
  * POJO that represents a 2-dimensional point
  *
